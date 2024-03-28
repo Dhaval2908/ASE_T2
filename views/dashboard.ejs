@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, <%= email %>!</h1>
+    <h2>Heart Rate: <span id="heart-rate"></span> BPM</h2>
+    <h2>Oxygen Level: <span id="oxygen-level"></span> %</h2>
+
+    <script>
+        function fetchData() {
+            console.log("hiii")
+            fetch('/dashboard-data')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('heart-rate').textContent = data.heartsensor;
+                    document.getElementById('oxygen-level').textContent = data.oxygensensor;
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+
+        // Initial fetch when the page loads
+        fetchData();
+
+        // Fetch data every 30 seconds
+        setInterval(fetchData, 1000);
+    </script>
+</body>
+</html>

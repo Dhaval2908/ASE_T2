@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-image: url(https://github.com/abhiramkomaravolu/background-pic/blob/main/img%20bcg.jpg?raw=true);
+      background-repeat: no-repeat;
+      background-position: center; /* Center the background image */
+      background-size:cover;
+      /*filter: saturate(50%); /* Decrease saturation */
+    }
+    h1, .brand { 
+        color: white;
+      font-size: 36px;
+      margin: 40px 0 20px;
+      font-weight: bolder;
+    }
+    form {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      /*background-color: rgba(255, 255, 255, 0.7);*/ /* Transparent white background */
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 3px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    a {
+      color: #2196F3;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .box-cnts1{
+        font-weight: bolder;
+    }
+    .box-cnts2{
+        color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="brand">SMART WEARABLE</div>
+  <h1 class="brand">Login</h1>
+  <% if (error) { %>
+    <p style="color: red;"><%= error %></p>
+<% } %>
+  <form action="/login" method="post">
+    <label for="username" class="box-cnts1">Email:</label>
+    <input type="text" id="username" name="email"><br><br>
+    <label for="password" class="box-cnts1">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <button type="submit" class="box-cnts1 ">Login</button>
+  </form>
+  <p class="box-cnts1 box-cnts2">Don't have an account? <a href="signup">Sign up</a></p>
+</body>
+</html>
